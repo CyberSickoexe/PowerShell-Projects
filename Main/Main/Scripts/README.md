@@ -10,7 +10,7 @@ This repository contains PowerShell scripts to help IT Support professionals aut
 
 ## Project Structure
 
-```
+```markdown
 
 IT-Support-Tools/
 ├── Main/
