@@ -1,150 +1,52 @@
-## 1. Full **README.md** with command-line instructions
+# IT Support PowerShell Admin Toolkit
 
-```markdown
-# IT Support PowerShell Tools
+## Executive Summary
 
-## Overview
-This repository contains PowerShell scripts to help IT Support professionals automate common tasks such as network info retrieval, AD user management, disk space checking, and more.
+The **Admin Toolkit** is a unified PowerShell solution engineered to streamline and automate a suite of critical IT administrative tasks within a single, robust script. By consolidating multiple essential functions into one comprehensive graphical interface, this toolkit enables IT professionals to perform routine and complex operations efficiently, securely, and with minimal manual input.
 
----
+## Features and Capabilities
 
-## Project Structure
+The `AdminToolkit.ps1` delivers the following core functionalities:
 
-```markdown
+- **Network Adapter Diagnostics**  
+  Retrieve detailed and actionable information on all network adapters, including status, MAC address, link speed, and IP configurations (IPv4/IPv6).
 
-IT-Support-Tools/
-├── Main/
-│   ├── Scripts/
-│   ├── Outputs/
-│   ├── Notes.md
-│   └── README.md
-├── Printer-Troubleshooting/
-│   ├── Scripts/
-│   └── README.md
-├── AD-UserManagement/
-│   ├── Scripts/
-│   └── README.md
-└── README.md
+- **Active Directory User Password Management**  
+  Reset and unlock Active Directory user accounts with seamless credential handling, ensuring security compliance and operational continuity.
 
-````
+- **Disk Space Monitoring**  
+  Generate detailed disk usage reports across all local file system drives, with clear metrics on free and used space, enabling proactive capacity planning.
 
----
+- **Network Drive Mapping**  
+  Map or remove network drives interactively, supporting persistent connections and credential management to facilitate secure access to shared resources.
 
-## Included Scripts (Main/Scripts)
+- **Temporary File Cleanup**  
+  Automate the removal of temporary files from user profiles to reclaim disk space and maintain system performance.
 
-| Script Name              | Description                                  |
-|--------------------------|----------------------------------------------|
-| `Get-NetworkInfo.ps1`    | Shows detailed network adapter info          |
-| `Reset-UserPassword.ps1` | Resets AD user passwords                       |
-| `Check-DiskSpace.ps1`    | Checks disk space and warns if low            |
-| `Map-NetworkDrive.ps1`   | Maps a network drive                           |
-| `Clear-TempFiles.ps1`    | Clears temporary files to free disk space     |
+## Design Highlights
 
----
+- **Intuitive Graphical User Interface**  
+  The toolkit leverages Windows Forms to present a user-friendly, interactive menu-driven interface, eliminating the need for memorizing commands or navigating multiple scripts.
 
-## How to Use
+- **Robust Error Handling and Feedback**  
+  Comprehensive validation and user feedback mechanisms ensure transparency, guiding the operator through successful completions or error conditions with clear messaging.
 
-### Step 1: Clone the repository
+- **Modular, Readable Codebase**  
+  Structured and fully commented code facilitates easy maintenance, customization, and extensibility to meet evolving organizational requirements.
 
-```powershell
-git clone https://github.com/YourUsername/IT-Support-Tools.git
-cd IT-Support-Tools
-````
+- **Minimal External Dependencies**  
+  Compatible with Windows PowerShell 5.1 and above, requiring only native modules and standard Windows components (e.g., RSAT for Active Directory functions).
 
-### Step 2: Set Execution Policy (if needed)
+## Intended Audience
 
-Open PowerShell as Administrator and run:
-
-```powershell
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-```
-
-Confirm with `Y`.
-
-### Step 3: Run a script
-
-Navigate to the script folder and run:
-
-```powershell
-cd .\Main\Scripts\
-.\Get-NetworkInfo.ps1
-```
+This toolkit is designed for IT Support Engineers, System Administrators, Helpdesk Professionals, and Network Operators who require a consolidated, reliable, and efficient means of performing daily administrative and diagnostic tasks across enterprise Windows environments.
 
 ---
 
-## Requirements
+By leveraging this unified toolkit, IT teams can significantly reduce operational overhead, accelerate incident response, and improve the consistency and accuracy of routine system maintenance and user management procedures.
 
-* Windows PowerShell 5.1 or later (PowerShell Core supported)
-* RSAT tools installed for AD scripts
-* Proper permissions for certain scripts
-* Execution policy allowing script execution
+For full usage instructions, prerequisite details, and deployment guidelines, please refer to the sections below.
 
 ---
 
-## Notes
-
-* Always review scripts before use.
-* Customize scripts as needed.
-* Scripts contain comments for guidance.
-
----
-
-## Contributing
-
-Fork the repo, add scripts or fixes, and submit pull requests.
-
----
-
-## License
-
-MIT License
-
----
-
-*Happy scripting!*
-
-````
-
----
-
-## 2. Example **GitHub Actions workflow YAML** for PowerShell scripts testing
-
-Create a file `.github/workflows/powershell.yml` in your repo:
-
-```yaml
-name: PowerShell Script CI
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-jobs:
-  test-powershell:
-    runs-on: windows-latest
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-
-      - name: Setup PowerShell
-        uses: actions/setup-powershell@v2
-
-      - name: Run PowerShell Scripts Syntax Check
-        shell: pwsh
-        run: |
-          # Test syntax for each script in Main/Scripts folder
-          Get-ChildItem -Path Main\Scripts -Filter *.ps1 | ForEach-Object {
-            Write-Host "Checking syntax of $($_.FullName)"
-            pwsh -NoProfile -Command "Test-Expression -Command (Get-Content -Raw $_.FullName)"
-          }
-````
-
----
-
-### Explanation:
-
-* **README.md** contains all commands you run in PowerShell.
-* **GitHub Actions YAML** automates script syntax checks on every push or pull request to `main`.
-* You can expand the workflow to include running scripts, deploying, or other testing.
+*Empowering IT Professionals through streamlined automation and intuitive interfaces.*
