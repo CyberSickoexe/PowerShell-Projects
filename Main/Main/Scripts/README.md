@@ -1,52 +1,82 @@
-# IT Support PowerShell Admin Toolkit
+@"
+# IT Support PowerShell Admin Toolkit with System Info GUI
 
 ## Executive Summary
 
-The **Admin Toolkit** is a unified PowerShell solution engineered to streamline and automate a suite of critical IT administrative tasks within a single, robust script. By consolidating multiple essential functions into one comprehensive graphical interface, this toolkit enables IT professionals to perform routine and complex operations efficiently, securely, and with minimal manual input.
+The **IT Support PowerShell Admin Toolkit** is a comprehensive, unified solution designed to streamline essential system administration and diagnostics tasks within Windows environments. It consolidates critical functions into an intuitive graphical interface, empowering IT professionals to efficiently monitor, maintain, and troubleshoot systems without relying on complex command-line operations.
 
-## Features and Capabilities
+At its core, the toolkit features an interactive **System Info Report GUI**, providing quick, detailed snapshots of system health and enabling automated daily reporting.
 
-The `AdminToolkit.ps1` delivers the following core functionalities:
+---
 
-- **Network Adapter Diagnostics**  
-  Retrieve detailed and actionable information on all network adapters, including status, MAC address, link speed, and IP configurations (IPv4/IPv6).
+## Key Features and Capabilities
 
-- **Active Directory User Password Management**  
-  Reset and unlock Active Directory user accounts with seamless credential handling, ensuring security compliance and operational continuity.
+### 1. System Info Report GUI  
+- Interactive Windows Forms interface displaying detailed system information:  
+  - Operating System details (version, build)  
+  - CPU model and specifications  
+  - Total and available RAM  
+  - Disk space usage per drive (size, free space, filesystem)  
+  - Active network adapters with MAC addresses  
+- Scans recent Windows Event Logs (System and Application) for errors and warnings within the last 48 hours.  
+- Summarizes key issues and offers automated suggestions for common critical problems (e.g., scheduling disk checks on NTFS corruption).  
+- Enables immediate report generation and display in a scrollable text box.  
+- Option to schedule daily automated system reports via Windows Task Scheduler (runs at 8 AM by default).
 
-- **Disk Space Monitoring**  
-  Generate detailed disk usage reports across all local file system drives, with clear metrics on free and used space, enabling proactive capacity planning.
+### 2. Network and Disk Diagnostics  
+- Retrieves and presents detailed network adapter status and IP configurations.  
+- Provides comprehensive disk usage statistics to aid capacity planning and proactive maintenance.
 
-- **Network Drive Mapping**  
-  Map or remove network drives interactively, supporting persistent connections and credential management to facilitate secure access to shared resources.
+### 3. Active Directory User Management (Optional)  
+- Includes functionality to reset and unlock AD user accounts securely, with credential prompts and compliance considerations. *(Requires RSAT modules.)*
 
-- **Temporary File Cleanup**  
-  Automate the removal of temporary files from user profiles to reclaim disk space and maintain system performance.
+### 4. Network Drive Management  
+- Allows mapping and removal of network drives with persistent connection and credential support.
 
-## Design Highlights
+### 5. Temporary File Cleanup  
+- Automates clearing of user profile temporary files to improve disk utilization and system responsiveness.
 
-- **Intuitive Graphical User Interface**  
-  The toolkit leverages Windows Forms to present a user-friendly, interactive menu-driven interface, eliminating the need for memorizing commands or navigating multiple scripts.
+---
 
-- **Robust Error Handling and Feedback**  
-  Comprehensive validation and user feedback mechanisms ensure transparency, guiding the operator through successful completions or error conditions with clear messaging.
+## Design and Technology Highlights
 
-- **Modular, Readable Codebase**  
-  Structured and fully commented code facilitates easy maintenance, customization, and extensibility to meet evolving organizational requirements.
+- **Windows PowerShell 5.1+ Compatible:**  
+  Relies on native cmdlets (`Get-CimInstance`, `Get-WmiObject`, `Get-WinEvent`, `Get-NetAdapter`, etc.) and Windows Forms assemblies (`System.Windows.Forms`, `System.Drawing`) for GUI elements.
 
-- **Minimal External Dependencies**  
-  Compatible with Windows PowerShell 5.1 and above, requiring only native modules and standard Windows components (e.g., RSAT for Active Directory functions).
+- **User-Friendly GUI:**  
+  Employs Windows Forms for an intuitive, menu-driven interface enabling point-and-click operations over scripting complexity.
+
+- **Robust Error Handling:**  
+  Provides clear feedback, error notifications, and actionable suggestions within the GUI context, minimizing guesswork.
+
+- **Modular and Maintainable Code:**  
+  Structured with readable, commented functions facilitating customization and extension.
+
+- **Minimal Dependencies:**  
+  Operates entirely within the Windows ecosystem without third-party software, though Active Directory functions require RSAT.
+
+---
 
 ## Intended Audience
 
-This toolkit is designed for IT Support Engineers, System Administrators, Helpdesk Professionals, and Network Operators who require a consolidated, reliable, and efficient means of performing daily administrative and diagnostic tasks across enterprise Windows environments.
+- IT Support Engineers  
+- System Administrators  
+- Helpdesk and Desktop Support Staff  
+- Network Operations Center (NOC) Technicians
+
+This toolkit suits professionals seeking to unify routine administrative tasks, system diagnostics, and user management into a single accessible tool, enhancing productivity and reducing operational errors.
 
 ---
 
-By leveraging this unified toolkit, IT teams can significantly reduce operational overhead, accelerate incident response, and improve the consistency and accuracy of routine system maintenance and user management procedures.
+## Usage Overview
 
-For full usage instructions, prerequisite details, and deployment guidelines, please refer to the sections below.
+1. **Run the Script:** Launch the PowerShell script in a Windows PowerShell 5.1+ session.  
+2. **Generate Reports:** Use the **Run Report** button in the GUI to view real-time system diagnostics.  
+3. **Schedule Automation:** Click **Schedule Daily Report** to create a scheduled task that outputs daily system reports without manual intervention.  
+4. **Extend Toolkit:** Optionally use included modules for AD user management, network drive mapping, and temp file cleanup as per your environment needs.
 
 ---
 
-*Empowering IT Professionals through streamlined automation and intuitive interfaces.*
+*Empowering IT Professionals with streamlined automation, actionable insights, and intuitive interfaces.*
+
+"@ | Out-File -FilePath .\README.md -Encoding utf8
