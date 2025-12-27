@@ -38,13 +38,13 @@ $btnSchedule.Left = 120
 $btnSchedule.Top = 5
 $panel.Controls.Add($btnSchedule)
 
-# Function: Run your existing report logic and output text to the TextBox
+# Run your existing report logic and output text to the TextBox
 function Run-SystemReportInteractive {
-    # Clear previous output
+    
     $textBox.Clear()
     $textBox.AppendText("Gathering system information..." + [Environment]::NewLine)
 
-    # Use your existing script logic here but replace Write-Host with $textBox.AppendText
+    
 
     try {
         $os = Get-WmiObject -Class Win32_OperatingSystem
@@ -104,10 +104,9 @@ function Run-SystemReportInteractive {
             $textBox.AppendText("  [$($evt.TimeCreated)] ID:$($evt.Id) Source:$($evt.ProviderName) Message: $($evt.Message.Substring(0,[Math]::Min(150,$evt.Message.Length)))`n")
         }
 
-        # You can implement interactive fix dialogs with MessageBox here if needed
-        # For example:
+       
         foreach ($evt in $systemEvents + $appEvents) {
-            # Simplified example for an error with Event ID 55 (NTFS corruption)
+            
             if ($evt.Id -eq 55) {
                 $result = [System.Windows.Forms.MessageBox]::Show("NTFS file system corruption detected in event $($evt.Id). Would you like to schedule chkdsk on reboot?","Auto-fix suggestion",[System.Windows.Forms.MessageBoxButtons]::YesNo)
                 if ($result -eq [System.Windows.Forms.DialogResult]::Yes) {
@@ -130,7 +129,7 @@ function Run-SystemReportInteractive {
     }
 }
 
-# Schedule Task Registration simplified for GUI
+
 function Register-DailyReportTask {
     $taskName = "DailySystemInfoReport"
     $scriptPath = $MyInvocation.MyCommand.Path
@@ -153,9 +152,9 @@ function Register-DailyReportTask {
     }
 }
 
-# Button event handlers
+
 $btnRun.Add_Click({ Run-SystemReportInteractive })
 $btnSchedule.Add_Click({ Register-DailyReportTask })
 
-# Show the form
+
 [void]$form.ShowDialog()
