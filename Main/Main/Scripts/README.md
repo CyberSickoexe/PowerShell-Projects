@@ -1,79 +1,168 @@
-@"
-# IT Support PowerShell Admin Toolkit with Advanced System Information GUI
+# IT Support PowerShell Admin Toolkit – Advanced System Information GUI
 
 ## Executive Summary
 
-The **IT Support PowerShell Admin Toolkit** is an integrated Windows automation and diagnostics solution designed to streamline enterprise system administration. It consolidates core IT operations into a unified, interactive GUI, enabling administrators to perform system monitoring, troubleshooting, and maintenance without relying heavily on command-line workflows.
+The **IT Support PowerShell Admin Toolkit** is an enterprise-grade Windows automation and diagnostics solution designed to centralize and streamline core system administration tasks. It replaces fragmented command-line workflows with a unified, interactive GUI built on Windows Forms, enabling IT professionals to monitor, diagnose, and maintain systems efficiently.
 
-At its core, the toolkit features a real-time **System Information Dashboard** that provides live telemetry, automated diagnostics, and structured reporting to support faster incident response and informed operational decisions.
+At its core, the toolkit provides a **real-time System Information Dashboard** and an **advanced network and system analysis suite**, delivering actionable insights for faster troubleshooting and improved operational visibility.
 
 ---
 
-## Core Features & Functional Scope
+## Core Features
 
 ### 1. System Information Dashboard
-- Windows Forms-based GUI delivering real-time system metrics, including:
-  - Operating system details (version, build, edition, patch level)
-  - CPU architecture, core count, and thread information
-  - Memory utilization and availability statistics
-  - Disk capacity, usage, and storage health overview
-  - Network adapter status and MAC address reporting
-- Event log analysis for System and Application logs (Errors and Warnings)
-- Automated system health insights with performance and resource alerts
-- Real-time UI updates for continuous monitoring
 
-### 2. Network Diagnostics & Analysis
-- Network adapter inspection and IP configuration reporting
-- Active connection monitoring with process-level attribution
-- DNS resolution and multi-resolver comparison analysis
-- Traceroute-based path inspection with latency assessment
-- Suspicious connection detection based on known high-risk ports
-- Network baseline capture and change comparison for anomaly detection
+A real-time GUI-based system monitoring panel providing live telemetry and system health visibility, including:
 
-### 3. Event Log Monitoring
-- Retrieval of Windows Event Logs across System, Application, and Security channels
-- Filtering of critical warnings and errors
-- Detailed event inspection within GUI panel
-- Export functionality for reporting and auditing
-
-### 4. Service & Startup Management Overview
-- Listing and monitoring of Windows services with status visibility
-- Startup program enumeration for system persistence analysis
-- Exportable service inventory for administrative review
+* Operating System details (edition, build, version, patch level)
+* CPU architecture, core count, and performance data
+* Memory usage and availability statistics
+* Disk health, capacity, and free space reporting
+* Active network adapter status and MAC address inventory
+* Live refresh-based system monitoring view
 
 ---
 
-## Architectural & Technical Highlights
+### 2. Event Log Monitoring & Analysis
 
-- **Platform:** PowerShell 5.1+ with native .NET Windows Forms integration  
-- **Core Libraries:** `System.Windows.Forms`, `System.Drawing`, `System.Windows.Forms.DataVisualization`  
-- **Design Approach:** Modular function-based architecture for reusable UI and system components  
-- **Data Handling:** Structured PSCustomObject outputs for consistent data binding in GUI grids  
-- **Error Handling:** Robust try/catch implementation across system and network operations  
-- **Performance Design:** Incremental updates for live charts and lightweight polling intervals  
-- **Dependencies:** Fully native Windows tooling; optional RSAT modules for extended administrative features  
+* Reads Windows **System** and **Application** logs
+* Filters **Errors and Warnings (last 48 hours)**
+* Displays structured event summaries in GUI
+* Full message inspection for selected events
+* Exportable event logs for reporting and audits
+
+---
+
+### 3. Advanced Network Diagnostics Suite
+
+A comprehensive network analysis module including:
+
+* Active TCP connection mapping with process attribution
+* DNS resolution forensics across multiple resolvers
+* Traceroute path analysis with latency and bottleneck detection
+* Suspicious connection detection (known high-risk ports)
+* Network snapshot and baseline comparison system
+* Change detection between known-good and current state
+
+---
+
+### 4. Service & Startup Visibility
+
+* Real-time Windows service inventory (status, name, display name)
+* Startup program enumeration for persistence analysis
+* System-wide service health overview
+* Exportable service dataset for documentation and review
+
+---
+
+### 5. Performance Monitoring (Live Charting)
+
+* Real-time CPU usage tracking
+* Memory utilization monitoring
+* Live graphical performance dashboard
+* Pause/resume monitoring controls
+* Rolling data window for continuous analysis
+
+---
+
+### 6. Automated System Reporting Tool
+
+* One-click system report generation
+* Outputs:
+
+  * OS, CPU, RAM, disk, and network summaries
+  * Recent event log highlights
+* Detects potential issues and suggests remediation actions
+* Optional scheduled daily report generation (Task Scheduler integration)
+
+---
+
+### 7. Network Baseline & Security Analysis
+
+* Save known-good network state snapshots
+* Compare current vs baseline connections
+* Detect:
+
+  * New connections
+  * Missing or changed connections
+* Suspicious activity detection based on port heuristics
+* Supports proactive intrusion and anomaly identification
+
+---
+
+## Architecture & Technical Design
+
+* **Platform:** PowerShell 5.1+
+* **UI Framework:** Windows Forms (.NET System.Windows.Forms)
+* **Data Model:** PSCustomObject-based structured outputs
+* **Core APIs Used:**
+
+  * CIM/WMI (`Get-CimInstance`, `Get-WmiObject`)
+  * Networking (`Get-NetAdapter`, `Get-NetTCPConnection`, `Resolve-DnsName`)
+  * Event Logs (`Get-WinEvent`)
+  * Performance Counters (`Get-Counter`)
+* **Design Approach:**
+
+  * Modular function-based architecture
+  * Separation of UI, diagnostics, and data layers
+  * Reusable diagnostic components
+* **Error Handling:**
+
+  * Try/Catch-based fault tolerance across all system calls
+  * Graceful degradation when system APIs are unavailable
+* **Dependencies:**
+
+  * Native Windows components only
+  * Optional RSAT modules for extended administrative features
 
 ---
 
 ## Target Audience
 
-- IT Support Engineers and System Administrators  
-- Network Operations Center (NOC) Technicians  
-- Infrastructure and Systems Engineers  
-- Helpdesk and Desktop Support Teams  
-
-The toolkit is designed to centralize operational workflows, reduce manual command-line dependency, and improve response efficiency across enterprise Windows environments.
-
----
-
-## Operational Notes
-
-- Requires Windows PowerShell 5.1 or later  
-- Recommended execution in elevated (Administrator) mode for full access to system data  
-- GUI-driven workflow replaces most manual diagnostic commands  
-- Network baseline feature should be initialized during known-good system state  
+* IT Support Engineers
+* System Administrators
+* Network Operations Center (NOC) Technicians
+* Desktop Support Teams
+* Infrastructure and Security Analysts
 
 ---
 
-*An integrated approach to Windows system administration, combining visibility, automation, and diagnostics into a single operational interface.*
-"@ | Out-File -FilePath .\README.md -Encoding utf8
+## Operational Requirements
+
+* Windows PowerShell 5.1 or later
+* Administrator privileges recommended for full diagnostics
+* Windows environment with standard system cmdlets available
+* Optional: RSAT tools for Active Directory and advanced management features
+
+---
+
+## Usage Overview
+
+### System Report Tool
+
+* Click **Run Report** to generate a full system snapshot
+* Review system health, disk usage, and event logs
+* Identify potential system issues automatically
+
+### Scheduled Reporting
+
+* Click **Schedule Daily Report**
+* Automatically creates a Windows Task Scheduler job
+* Runs daily at 8:00 AM local time
+
+---
+
+## Key Benefits
+
+* Centralized IT diagnostics in a single interface
+* Reduced reliance on manual PowerShell commands
+* Faster incident response and troubleshooting
+* Improved visibility into system and network behavior
+* Lightweight, native Windows solution with no external dependencies
+
+---
+
+## Summary
+
+The **IT Support PowerShell Admin Toolkit** delivers a unified operational platform for Windows system management, combining real-time monitoring, advanced diagnostics, and automated reporting. It is designed to enhance efficiency, reduce manual workload, and provide deep visibility into enterprise IT environments.
+
