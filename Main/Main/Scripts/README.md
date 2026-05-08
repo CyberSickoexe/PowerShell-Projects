@@ -73,25 +73,6 @@ It replaces scattered command-line tools with a unified GUI for faster troublesh
 - `PSCustomObject` structured outputs
 - JSON-based network baseline storage
 - Try/Catch error handling for stability
-
----
-
-## 🖼 Screenshots
-
-> Add your screenshots in a `/screenshots` folder and update paths below.
-
-### 🖥 Main Dashboard
-![Dashboard](screenshots/dashboard.png)
-
-### 📊 Performance Monitoring
-![Performance](screenshots/performance.png)
-
-### 🌐 Network Analyzer
-![Network](screenshots/network.png)
-
-### 📜 Event Logs
-![Events](screenshots/events.png)
-
 ---
 
 ## 📦 Installation
