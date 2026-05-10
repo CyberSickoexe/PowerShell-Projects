@@ -1,64 +1,128 @@
-````markdown
-# IT Support PowerShell Tools
+# ⚡ IT SUPPORT POWERTOOLS // v0.9.Δ
 
-Welcome to the IT Support PowerShell Tools repository!  
-This collection contains useful PowerShell scripts and projects designed to automate common IT support tasks like network management, Active Directory, printer troubleshooting, disk space checks, and more.
+> “SYSTEMS ARE NEVER BROKEN… THEY’RE JUST MISUNDERSTOOD.”
+
+Welcome to the **IT Support PowerShell Tools Repository**  a modular arsenal of automation scripts built to stabilize, repair, and optimize enterprise environments under pressure.
+
+This is not just tooling.  
+This is **digital maintenance infrastructure for failing systems.**
 
 ---
 
-## Repository Structure
+## 🌐 SYSTEM ARCHITECTURE
 
+### 🧠 CORE MATRIX
 - `Main/`  
-  Core scripts and tools used in everyday IT support tasks.
-
-- `Printer-Troubleshooting/`  
-  Scripts and tools focused on printer diagnostics and fixes.
-
-- `AD-UserManagement/`  
-  Active Directory user and group management scripts.
+  ▸ Primary execution scripts  
+  ▸ Network diagnostics  
+  ▸ System health scanning  
+  ▸ Daily IT operations toolkit
 
 ---
 
-## Getting Started
+### 🖨️ PRINT SUBSYSTEM // PRINTER-TRIAGE NODE
+- `Printer-Troubleshooting/`  
+  ▸ Print queue recovery protocols  
+  ▸ Driver repair routines  
+  ▸ Device reinitialization scripts  
+  ▸ Hardware fault isolation logic
 
-### Clone the repository:
+---
 
+### 👤 IDENTITY GRID // ACTIVE DIRECTORY NODE
+- `AD-UserManagement/`  
+  ▸ User lifecycle control  
+  ▸ Group policy manipulation  
+  ▸ Account provisioning & termination  
+  ▸ Directory integrity operations
+
+---
+
+## 🤖 NETGUARD AUTOREPAIR ENGINE // NEURAL MODULE (IN DEVELOPMENT)
+
+> STATUS: 🚧 BUILDING / SYNCHRONIZED WITH AD SYSTEMS
+
+The **NetGuard Autorepair Engine** is an evolving autonomous recovery system designed to detect system instability, diagnose root causes, and deploy corrective actions without human intervention.
+
+It operates across **PowerShell + Batch + Python**, forming a hybrid repair intelligence layer over traditional IT support workflows.
+
+### ⚙️ CORE INTENT
+- Autonomous network fault detection
+- System recovery orchestration
+- Printer + AD integration (linked subsystems)
+- Automated incident reporting
+- Escalation packet generation for IT teams
+
+### 🧬 DEVELOPMENT STATUS
+- 🚧 Active development phase  
+- 🔄 Parallel integration with Active Directory module  
+- ⚙️ Architecture still evolving under load testing conditions  
+
+---
+
+## 🚀 DEPLOYMENT PROTOCOL
+
+### STEP 01 // CLONE NODE
 ```powershell
 git clone https://github.com/YourUsername/IT-Support-Tools.git
 cd IT-Support-Tools
-````
+```
 
-### Set PowerShell execution policy (if needed):
+---
 
+### STEP 02 // ENABLE EXECUTION CHANNEL
 ```powershell
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
 ---
 
-## How to Use
-
-Navigate to any folder and run the PowerShell scripts as needed, for example:
+## ▶️ EXECUTION EXAMPLES
 
 ```powershell
 cd .\Main\Scripts\
 .\Get-NetworkInfo.ps1
 ```
 
----
-
-## Contribution
-
-Feel free to fork this repository, add new scripts or improve existing ones, and submit pull requests.
+SYSTEM RESPONSE:
+> Diagnostics initiated. Network telemetry acquired.
 
 ---
 
-## License
+## 🧠 CONTRIBUTION PROTOCOL
 
-MIT License
+This system evolves through collective engineering.
+
+- Fork the repository
+- Create a feature branch
+- Enhance existing repair logic
+- Inject new automation modules
+- Submit merge request into mainline
+
+⚠️ Ensure all scripts are structured, documented, and operational under stress conditions.
 
 ---
 
-*Happy scripting!*
+## 📄 LICENSE
 
-```
+MIT License — unrestricted system utilization permitted.
+
+---
+
+## 🔮 ROADMAP // FUTURE EXPANSION
+
+- NetGuard full autonomous recovery AI
+- Active Directory deep automation layer expansion
+- Centralized command & control dashboard (web-based UI)
+- Real-time incident visualization system
+- Automated IT ticket generation interface
+- Cyber-resilient self-healing infrastructure layer
+
+---
+
+## 🕶️ FINAL NOTICE
+
+> “YOU DON’T FIX SYSTEMS ONE BY ONE.  
+> YOU TEACH THEM HOW TO HEAL THEMSELVES.”
+
+**END OF LINE.**
